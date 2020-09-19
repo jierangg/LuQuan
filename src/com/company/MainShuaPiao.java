@@ -1,13 +1,17 @@
 package com.company;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLDecoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.zip.GZIPInputStream;
 
 public class MainShuaPiao {
     public static HttpClient httpClient = HttpClient.newBuilder().build();
@@ -25,9 +29,9 @@ public class MainShuaPiao {
                 .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
-    }
 
-    public static void whileSend(){
+    }
+public static void whileSend(){
         while (true){
             new Thread(() -> {
                 try {
@@ -43,6 +47,7 @@ public class MainShuaPiao {
             }
         }
     }
+
     public static void main(String[] args) throws InterruptedException, IOException, URISyntaxException {
         whileSend();
     }
