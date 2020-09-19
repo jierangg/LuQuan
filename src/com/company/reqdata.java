@@ -14,6 +14,15 @@ public class reqdata {
     String scene= "";
     String promoterCode= "";
     String maxcash= "";
+    String reChangeNo="15602968825";
+
+    public String getReChangeNo() {
+        return reChangeNo;
+    }
+
+    public void setReChangeNo(String reChangeNo) {
+        this.reChangeNo = reChangeNo;
+    }
 
     public reqdata(String goodsId) {
         this.goodsId = goodsId;
